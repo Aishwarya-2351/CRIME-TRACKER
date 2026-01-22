@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crime Tracker | Register</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+
+  <div class="overlay"></div>
+
+  <div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+      <div class="logo">
+        <span class="shield">🛡️</span>
+        <h1>CRIME<br>TRACKER</h1>
+      </div>
+
+      <p class="subtitle">Bangalore Crime Pattern Analysis & Hotspot Prediction System</p>
+
+      <div class="feature-box">
+        <div class="feature-card">📍 LIVE HEATMAP</div>
+        <div class="feature-card">🤖 AI PREDICTION</div>
+        <div class="feature-card">🛡️ SAFETY SCORES</div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+      <h2>CREATE ACCOUNT</h2>
+      <p class="small-text">Register for access</p>
+
+      <form method="POST" action="/register">
+        <label>NAME</label>
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <label>EMAIL</label>
+        <input type="email" name="email" placeholder="your.email@example.com" required>
+
+        <label>PASSWORD</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+
+        <button type="submit" class="btn-primary">CREATE ACCOUNT</button>
+      </form>
+
+      <a class="back-link" href="/login">› BACK TO LOGIN</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

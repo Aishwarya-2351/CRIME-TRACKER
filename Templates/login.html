@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crime Tracker | Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="auth-body">
+
+  <div class="overlay"></div>
+
+  <div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+      <div class="logo">
+        <span class="shield">🛡️</span>
+        <h1>CRIME<br>TRACKER</h1>
+      </div>
+
+      <p class="subtitle">Bangalore Crime Pattern Analysis & Hotspot Prediction System</p>
+
+      <!-- ✅ WORKING BUTTONS -->
+      <div class="feature-box">
+        <a class="feature-card" href="/dashboard?tab=heatmap">📍 LIVE HEATMAP</a>
+        <a class="feature-card" href="/dashboard?tab=prediction">🤖 AI PREDICTION</a>
+        <a class="feature-card" href="/dashboard?tab=safety">🛡️ SAFETY SCORES</a>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+      <h2>LOGIN</h2>
+      <p class="small-text">Enter your credentials</p>
+
+      <form method="POST" action="/login">
+        <label>EMAIL</label>
+        <input type="email" name="email" placeholder="your.email@example.com" required>
+
+        <label>PASSWORD</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+
+        <button type="submit" class="btn-primary">LOGIN</button>
+      </form>
+
+      <a class="back-link" href="/register">› CREATE ACCOUNT</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ---------------- AUTH PAGES ---------------- */
+.auth-body{
+  height:100vh;
+  background: url("/static/img/bg.jpeg") no-repeat center center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  color:white;
+}
+
+
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(2px);
+  z-index:0;
+}
+
+.auth-container{
+  width:85%;
+  max-width:1200px;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  z-index:1;
+}
+
+.auth-left{
+  flex:1;
+  padding:30px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo h1{
+  font-size:52px;
+  font-weight:900;
+  line-height:0.9;
+}
+
+.subtitle{
+  margin-top:15px;
+  font-size:18px;
+  opacity:0.8;
+  max-width:520px;
+}
+
+.feature-box{
+  display:flex;
+  gap:15px;
+  margin-top:40px;
+}
+
+.feature-card{
+  background: rgba(10,15,25,0.75);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:18px 22px;
+  border-radius:12px;
+  font-weight:600;
+  min-width:160px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,0.4);
+}
+
+.auth-right{
+  width:420px;
+  padding:30px;
+  border-radius:16px;
+  background: rgba(10,15,25,0.85);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.auth-right h2{
+  font-size:22px;
+  font-weight:800;
+}
+
+.small-text{
+  margin-top:5px;
+  opacity:0.7;
+  font-size:14px;
+}
+
+form{
+  margin-top:25px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+label{
+  font-size:12px;
+  opacity:0.7;
+  margin-top:5px;
+}
+
+input, select{
+  padding:12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color:white;
+  outline:none;
+}
+
+.btn-primary{
+  margin-top:15px;
+  padding:12px;
+  background:#3b82f6;
+  border:none;
+  border-radius:10px;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.btn-primary:hover{
+  opacity:0.9;
+}
+
+.back-link{
+  display:block;
+  margin-top:18px;
+  text-decoration:none;
+  color:#60a5fa;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* ---------------- DASHBOARD ---------------- */
+.dash-body{
+  background:#050a14;
+  color:white;
+  height:100vh;
+  margin:0;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background: rgba(10,15,25,0.9);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logout{
+  color:#60a5fa;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.dash-container{
+  display:flex;
+  height:calc(100vh - 60px);
+}
+
+.left-panel{
+  width:360px;
+  padding:20px;
+  background: rgba(10,15,25,0.85);
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+
+.left-panel h3{
+  margin-bottom:15px;
+}
+
+.left-panel label{
+  display:block;
+  margin-top:12px;
+  font-size:13px;
+  opacity:0.8;
+}
+
+.left-panel select,
+.left-panel input{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color:white;
+}
+
+.result-card{
+  margin-top:18px;
+  padding:15px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+#riskResult{
+  font-size:22px;
+  font-weight:800;
+  margin-top:8px;
+}
+
+.btn-secondary{
+  margin-top:12px;
+  padding:12px;
+  width:100%;
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.hint{
+  margin-top:15px;
+  font-size:13px;
+  opacity:0.75;
+  line-height:1.4;
+  padding:10px;
+  border-radius:10px;
+  background: rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.right-panel{
+  flex:1;
+}
+
+#map{
+  width:100%;
+  height:100%;
+}
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:15px;
+}
+
+.tab-btn{
+  flex:1;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.tab-btn:hover{
+  background: rgba(255,255,255,0.1);
+}

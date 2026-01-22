@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crime Tracker | Dashboard</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+
+<body class="dash-body">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <h2>CRIME TRACKER</h2>
+    <a class="logout" href="/logout">Logout</a>
+  </div>
+
+  <div class="dash-container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+      <!-- TAB BUTTONS -->
+      <div class="tabs">
+        <button class="tab-btn" onclick="showTab('heatmap')">📍 Live Heatmap</button>
+        <button class="tab-btn" onclick="showTab('prediction')">🤖 AI Prediction</button>
+        <button class="tab-btn" onclick="showTab('safety')">🛡️ Safety Scores</button>
+      </div>
+
+      <!-- 🔹 HEATMAP TAB -->
+      <div id="heatmapTab" class="tab-content">
+        <h3>Live Heatmap</h3>
+        <p style="opacity:0.8; font-size:14px; margin-top:8px;">
+          Heatmap is displayed on the map. Use the button to show/hide it.
+        </p>
+
+        <button class="btn-secondary" onclick="toggleHeatmap()" style="margin-top:15px;">
+          Toggle Heatmap
+        </button>
+
+        <div class="hint" style="margin-top:15px;">
+          <p><b>Tip:</b> Heatmap shows crime density (hotspots).</p>
+        </div>
+      </div>
+
+      <!-- 🔹 AI PREDICTION TAB -->
+      <div id="predictionTab" class="tab-content" style="display:none;">
+        <h3>AI Risk Prediction</h3>
+
+        <label>Police Station</label>
+        <select id="station" onchange="loadStationCrimes()">
+          {% for ps in police_stations %}
+            <option value="{{ ps }}">{{ ps }}</option>
+          {% endfor %}
+        </select>
+
+        <label>Date</label>
+        <input type="date" id="date" required/>
+
+        <label>Time</label>
+        <input type="time" id="time" required/>
+
+        <button class="btn-primary" onclick="predictRisk()">Predict Risk</button>
+
+        <div class="result-card">
+          <h4>Predicted Risk</h4>
+          <p id="riskResult">---</p>
+        </div>
+
+        <div class="hint">
+          <p><b>Tip:</b> Select a police station to view crime markers.</p>
+        </div>
+      </div>
+
+      <!-- 🔹 SAFETY SCORE TAB -->
+      <div id="safetyTab" class="tab-content" style="display:none;">
+        <h3>Safety Scores</h3>
+
+        <p style="opacity:0.8; font-size:14px; margin-top:8px;">
+          Safety Score is based on crime density + predicted risk.
+        </p>
+
+        <div class="result-card" style="margin-top:15px;">
+          <h4>Area Safety Score</h4>
+          <p style="font-size:22px; font-weight:800; margin-top:8px; color:#60a5fa;">
+            Coming Soon
+          </p>
+        </div>
+
+        <div class="hint">
+          <p><b>Note:</b> This section can be upgraded with nearby crime counts and a safety meter.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+      <div id="map"></div>
+    </div>
+
+  </div>
+
+  <!-- Leaflet Scripts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+  <!-- Dashboard JS -->
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+  <!-- TAB SWITCH SCRIPT -->
+  <script>
+    function showTab(tabName) {
+      document.getElementById("heatmapTab").style.display = "none";
+      document.getElementById("predictionTab").style.display = "none";
+      document.getElementById("safetyTab").style.display = "none";
+
+      if (tabName === "heatmap") {
+        document.getElementById("heatmapTab").style.display = "block";
+      }
+      if (tabName === "prediction") {
+        document.getElementById("predictionTab").style.display = "block";
+      }
+      if (tabName === "safety") {
+        document.getElementById("safetyTab").style.display = "block";
+      }
+    }
+
+    // Default tab open
+    showTab("heatmap");
+  </script>
+
+</body>
+</html>
